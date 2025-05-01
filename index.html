@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voter Verification System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Page 1: Voter ID Entry -->
+    <div class="page active" id="page1">
+      <h2>Step 1: Voter Information</h2>
+      <form id="voterForm">
+        <div class="form-group">
+          <label for="voterId">Voter ID:</label>
+          <input type="text" id="voterId" required pattern="[A-Za-z0-9]{10}" placeholder="Enter 10-character ID" />
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" required />
+        </div>
+        <button type="submit">
+          <span>Proceed to Biometric Scan</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Page 2: Biometric Verification -->
+    <div class="page" id="page2">
+      <h2>Step 2: Biometric Verification</h2>
+      <div class="scanner-container">
+        <div class="fingerprint-scanner">
+          <div class="sensor" id="fingerprintSensor">
+            <svg class="fingerprint-icon" id="fingerprintIcon" viewBox="0 0 512 512" width="80" height="80">
+              <!-- (Fingerprint path stays same) -->
+              <path fill="#555" d="M256.31,0C139.69,0,45.16,94.51...Z"></path>
+            </svg>
+            <div class="scan-line" id="scanLine"></div>
+          </div>
+        </div>
+        <p id="scanStatus">Please place your finger on the scanner</p>
+        <div class="button-group">
+          <button id="scanBtn">
+            <span>Scan Fingerprint</span>
+          </button>
+          <button type="button" class="secondary" onclick="showPage(1)">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Result -->
+    <div class="modal" id="resultModal">
+      <div class="modal-content">
+        <div id="successBox" class="success-message">
+          <h2>✅ Verification Successful!</h2>
+          <p id="successMessage">Voter identity confirmed.</p>
+          <button onclick="resetFlow()">Finish</button>
+        </div>
+        <div id="errorBox" class="error-message">
+          <h2>❌ Verification Failed</h2>
+          <p id="errorMessage">Biometric mismatch or invalid credentials.</p>
+          <div class="button-group">
+            <button id="retryBtn">Retry</button>
+            <button class="secondary" onclick="resetFlow()">Start Over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="javascript.js"></script>
+</body>
+</html>

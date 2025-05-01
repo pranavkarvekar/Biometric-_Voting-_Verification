@@ -1,0 +1,579 @@
+/* Reset & Base
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  /* Page Sections */
+  /*.page {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  
+  .page.active {
+    display: block;
+  }
+  
+  /* Forms */
+  /*form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  button {
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    gap: 8px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  button.secondary {
+    background-color: #6c757d;
+  }
+  
+  button.secondary:hover {
+    background-color: #495057;
+  }
+  
+  /* Biometric Scanner Section */
+ /* .scanner-container {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .fingerprint-scanner {
+    width: 140px;
+    height: 180px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    margin: 20px auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 2px solid #b0bec5;
+  }
+  
+  .sensor {
+    width: 100px;
+    height: 140px;
+    background-color: #cfd8dc;
+    border-radius: 15px;
+    border: 2px solid #607d8b;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .sensor.scanning {
+    background-color: #b3e5fc;
+    box-shadow: 0 0 15px #29b6f6;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .fingerprint-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .fingerprint-icon.visible {
+    opacity: 0.7;
+  }
+  
+  .scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #29b6f6, transparent);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  
+  .scanning .scan-line {
+    animation: scanMove 2s linear infinite;
+    opacity: 1;
+  }
+  
+  /* Status Message */
+ /*#scanStatus {
+    margin: 20px 0;
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  /* Modal */
+  /*.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal.active {
+    display: flex;
+    opacity: 1;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .success-message h2 {
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+  
+  .error-message h2 {
+    color: #dc3545;
+    margin-bottom: 10px;
+  }
+  
+  .success-message p,
+  .error-message p {
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 16px;
+  }
+  
+  /* Page titles */
+ /* h2 {
+    margin-bottom: 20px;
+    color: #333;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #007BFF;
+  }
+  
+  /* Button group */
+ /* .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Animations */
+  /*@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 5px #29b6f6;
+    }
+    50% {
+      box-shadow: 0 0 20px #29b6f6;
+    }
+    100% {
+      box-shadow: 0 0 5px #29b6f6;
+    }
+  }
+  
+  @keyframes scanMove {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(140px);
+    }
+  } */
+
+
+
+  /* Reset & Base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  /* Page Sections */
+  .page {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  
+  .page.active {
+    display: block;
+  }
+  
+  /* Forms */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  button {
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    gap: 8px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  button.secondary {
+    background-color: #6c757d;
+  }
+  
+  button.secondary:hover {
+    background-color: #495057;
+  }
+  
+  /* Biometric Scanner Section */
+  .scanner-container {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .fingerprint-scanner {
+    width: 140px;
+    height: 180px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    margin: 20px auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 2px solid #b0bec5;
+  }
+  
+  .sensor {
+    width: 100px;
+    height: 140px;
+    background-color: #cfd8dc;
+    border-radius: 15px;
+    border: 2px solid #607d8b;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .sensor.scanning {
+    background-color: #b3e5fc;
+    box-shadow: 0 0 15px #29b6f6;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .fingerprint-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .fingerprint-icon.visible {
+    opacity: 0.7;
+  }
+  
+  .scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #29b6f6, transparent);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  
+  .scanning .scan-line {
+    animation: scanMove 2s linear infinite;
+    opacity: 1;
+  }
+  
+  /* Status Message */
+  #scanStatus {
+    margin: 20px 0;
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal.active {
+    display: flex;
+    opacity: 1;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .success-message h2 {
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+  
+  .error-message h2 {
+    color: #dc3545;
+    margin-bottom: 10px;
+  }
+  
+  /* Updated styles for success message */
+  .success-message p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 16px;
+  }
+  
+  .success-message button {
+    margin: 0;
+    padding: 8px 16px;
+    font-size: 14px;
+    height: auto;
+    min-width: 80px;
+  }
+  
+  .error-message p {
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 16px;
+  }
+  
+  /* Page titles */
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #007BFF;
+  }
+  
+  /* Button group */
+  .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 5px #29b6f6;
+    }
+    50% {
+      box-shadow: 0 0 20px #29b6f6;
+    }
+    100% {
+      box-shadow: 0 0 5px #29b6f6;
+    }
+  }
+  
+  @keyframes scanMove {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(140px);
+    }
+  }
